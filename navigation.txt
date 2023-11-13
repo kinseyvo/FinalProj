@@ -1,0 +1,12 @@
+Gymprentice Page Navigation:
+1. App.js
+2. Home.js
+    - Everything after Home.js is based on User, no required navigation
+3. Account.js
+4. Locations.js
+5. Schedules.js
+6. WorkoutTracking.js
+7. Nutrition.js
+8. Exercises.js
+9. Review.js
+10. About.js
