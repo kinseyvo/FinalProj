@@ -1,7 +1,5 @@
 # Gymprentice
 
-CPSC 411 FInal Project
-
 For gym rats, new and old. The only hard part of going to the gym is actually going to the gym. Find nearby gyms to workout. You can make your own workout schedule. Explore different types of strength, core, and cardio exercises. Don’t put off until tomorrow what can be done today!
 
 
