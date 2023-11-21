@@ -1,10 +1,15 @@
 import React, { useState } from 'react';
 import AppContext from './AppContext';
 
-import { StyleSheet, Text, SafeAreaView, ScrollView } from 'react-native';
+import { StyleSheet, Text, SafeAreaView, ScrollView, Linking, TouchableWithoutFeedback } from 'react-native';
 
 const About = ({ route, navigation }) => {
     const context = React.useContext(AppContext);
+
+    const handleLinkPress = () => {
+      const url = 'https://github.com/kinseyvo/Gymprentice';
+      Linking.openURL(url);
+    };
     
     return (
     <SafeAreaView style={styles.container}>
@@ -12,6 +17,10 @@ const About = ({ route, navigation }) => {
         <Text style={styles.title}>About Page</Text>
         <Text style={styles.header}>Name: Kinsey Vo</Text>
         <Text style={styles.header}>Class: CPSC 411-01</Text>
+        <Text style={styles.header}>GitHub{' '}
+        <TouchableWithoutFeedback onPress={handleLinkPress}>
+          <Text style={styles.linkText}>Link!</Text>
+        </TouchableWithoutFeedback></Text>
         <Text style={styles.header}>Gymprentice</Text>
         <Text style={styles.subHeader}>For gym rats, new and old. The only hard part of going to the gym is actually going to the gym. Find nearby gyms to workout. You can make your own workout schedule, with ro without personal trainers. Explore different types of strength, core, and cardio exercises. Don’t put off until tomorrow what can be done today!</Text>
         <Text style={styles.header}>Features</Text>
@@ -55,8 +64,9 @@ const styles = StyleSheet.create({
     color: '#3375ff',
   },
   centerTitle: {
-    fontSize: 24,
+    fontSize: 44,
     fontWeight: 'bold',
+    marginTop: 10,
     marginBottom: 10,
     color: '#3375ff',
     textAlign: 'center',
@@ -81,6 +91,10 @@ const styles = StyleSheet.create({
     fontSize: 11,
     marginBottom: 5,
     color: 'black',
+  },
+  linkText: {
+    color: 'blue',
+    textDecorationLine: 'underline',
   },
 });
 

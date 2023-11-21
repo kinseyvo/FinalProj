@@ -12,9 +12,11 @@ const Locations = ({ route, navigation }) => {
         <Text style={styles.title}>Gym Locations</Text>
             <Text>Current Location: ___________</Text>
             <Text> </Text>
-            <Text>Google Maps API goes here....WIP</Text>
             <Text> </Text>
         <Button title="Find Gyms"/>
+        <Text> </Text>
+        <Text> </Text>
+        <Text>Google Maps API goes here....WIP</Text>
       </SafeAreaView>
     );
 };

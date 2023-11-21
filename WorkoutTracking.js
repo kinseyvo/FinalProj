@@ -7,13 +7,23 @@ const WorkoutTracking = ({ route, navigation }) => {
     const context = React.useContext(AppContext);
 
 
+    const handleEdit = () => {
+      console.log("handleEdit pressed");
+    };
+
+    const handleAdd = () => {
+      console.log("handleAdd pressed");
+    };
+
+
     return (
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
           <ScrollView>
             <Text style={styles.title}>Workout Tracking</Text>
-              <Button title="Edit" />
-              <Button title="Add" />
-              {/* Have Edit and Add buttons side by side using flexDirection */}
+            <View style={styles.buttonContainer}>
+              <Button title="Edit" onPress={handleEdit}/>
+              <Button title="Add" onPress={handleAdd}/>
+            </View>
               <Text></Text>
               {/* similar to tasks from threedo */}
               <Text>Recents:</Text>
@@ -43,7 +53,7 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       justifyContent: 'center',
-      alignItems: 'center',
+      alignItems: 'normal',
       backgroundColor: '#F0F0F0',
       paddingHorizontal: 8,
       paddingVertical: 25,
@@ -62,7 +72,9 @@ const styles = StyleSheet.create({
       color: 'black',
     },
     buttonContainer: {
-      marginVertical: 10,
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      marginTop: 6,
     },
     buttonWrapper: {
       marginVertical: 5,

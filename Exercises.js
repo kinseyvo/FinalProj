@@ -13,6 +13,8 @@ const Exercises = ({ route, navigation }) => {
             <Text style={styles.title}>Exercises</Text>
             <Text>similar UI to Home Screen!</Text>
             <Text>square tile boxes that redirect to specific exercise pages</Text>
+            <Text>or maybe have it in a TABLE OF CONTENTS where</Text>
+            <Text>the user clicks which area they want to see and it goes but still same page</Text>
             <Text style={styles.header}>Strength</Text>
             <Text>Bench Press</Text>
             <Text>image</Text>

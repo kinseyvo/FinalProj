@@ -25,10 +25,16 @@ const Stack = createNativeStackNavigator();
 
 const App = () => {
   const [username, setUsername] = useState('Gym Bro');
+  const [email, setEmail] = useState('gymbro@gymbro.com');
+  const [gymName, setGymName] = useState('Planet Fitness');
 
   const contextValue = {
     username,
     setUsername,
+    email,
+    setEmail,
+    gymName,
+    setGymName,
   };
 
   return (
@@ -36,7 +42,7 @@ const App = () => {
       <NavigationContainer>
         <Stack.Navigator initialRouteName='Home'>
           <Stack.Screen name="Home" component={Home} initialParams={username} />
-          <Stack.Screen name="Account" component={Account} initialParams={username} />
+          <Stack.Screen name="Account" component={Account} initialParams={{username, email, gymName}} />
           <Stack.Screen name="Locations" component={Locations} />
           <Stack.Screen name="Schedules" component={Schedules} />
           <Stack.Screen name="WorkoutTracking" component={WorkoutTracking} />
