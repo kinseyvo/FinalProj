@@ -8,11 +8,13 @@ const Locations = ({ route, navigation }) => {
 
 
     return (
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Gym Locations</Text>
             <Text>Current Location: ___________</Text>
+            <Button title="Enter Zip Code" />
             <Text> </Text>
             <Text> </Text>
+            <Button title="Find Nearby Gyms" />
         <Button title="Find Gyms"/>
         <Text> </Text>
         <Text> </Text>
@@ -24,9 +26,8 @@ const Locations = ({ route, navigation }) => {
 const styles = StyleSheet.create({
     container: {
       flex: 1,
-      justifyContent: 'center',
-      alignItems: 'center',
-      backgroundColor: '#F0F0F0',
+      alignItems: 'normal',
+      backgroundColor: '#FAFAFA',
       paddingHorizontal: 8,
       paddingVertical: 25,
     },

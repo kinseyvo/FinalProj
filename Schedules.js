@@ -9,7 +9,6 @@ const Schedules = ({ route, navigation }) => {
     const context = React.useContext(AppContext);
 
     const [selected, setSelected] = useState('');
-    //const [selectedPlans, setSelectedPlans] = useState('');
     const [mondayInput, setMondayInput] = useState('');
     const [tuesdayInput, setTuesdayInput] = useState('');
     const [wednesdayInput, setWednesdayInput] = useState('');
@@ -71,22 +70,6 @@ const Schedules = ({ route, navigation }) => {
         console.log('error', error);
       }
     };
-
-    // const handleDayPress = (day) => {
-    //   const selectedDate =day.dateString;
-    //   setSelected(selectedDate);
-
-    //   loadPlans(selectedDate);
-    // };
-
-    // const loadPlans = async (date) => {
-    //   try {
-    //     const plans = await AsyncStorage.getItem(date);
-    //     setSelectedPlans(plans || '');
-    //   } catch (error) {
-    //     console.log('error', error);
-    //   }
-    // };
 
     useEffect(() => {
       const loadWorkoutInputs = async () => {
@@ -216,7 +199,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'normal',
-      backgroundColor: '#F0F0F0',
+      backgroundColor: '#FAFAFA',
       paddingHorizontal: 8,
       paddingVertical: 25,
     },
@@ -248,6 +231,6 @@ const styles = StyleSheet.create({
       flexDirection: 'row',
       alignItems: 'center',
     },
-  });
+});
 
 export default Schedules;

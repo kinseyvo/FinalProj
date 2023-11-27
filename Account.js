@@ -39,7 +39,7 @@ const Account = ({ route, navigation }) => {
 
         setUserImage(image.path);
       } catch (error) {
-        console.log('error: ', error);
+        console.log('error:', error);
       }
     };
 
@@ -116,8 +116,8 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#F0F0F0',
+    alignItems: 'normal',
+    backgroundColor: '#FAFAFA',
   },
   title: {
     fontSize: 24,

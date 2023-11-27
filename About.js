@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import AppContext from './AppContext';
 
 import { StyleSheet, Text, SafeAreaView, ScrollView, Linking, TouchableWithoutFeedback } from 'react-native';
+import Zocial from 'react-native-vector-icons/Zocial';
 
 const About = ({ route, navigation }) => {
     const context = React.useContext(AppContext);
@@ -17,6 +18,7 @@ const About = ({ route, navigation }) => {
         <Text style={styles.title}>About Page</Text>
         <Text style={styles.header}>Name: Kinsey Vo</Text>
         <Text style={styles.header}>Class: CPSC 411-01</Text>
+        <Zocial name="github" size={30} color='black' />
         <Text style={styles.header}>GitHub{' '}
         <TouchableWithoutFeedback onPress={handleLinkPress}>
           <Text style={styles.linkText}>Link!</Text>
@@ -55,7 +57,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F0F0F0',
+    backgroundColor: '#FAFAFA',
+    paddingHorizontal: 8,
   },
   title: {
     fontSize: 24,
