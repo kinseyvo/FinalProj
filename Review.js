@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import AppContext from './AppContext';
 
-import { StyleSheet, View, Text, SafeAreaView, ScrollView, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, ScrollView, TouchableOpacity, Touchable, TextInput } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 import MaterialIcons from 'react-native-vector-icons/MaterialIcons';
 import MCIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import FA5 from 'react-native-vector-icons/FontAwesome5';
 import FA6 from 'react-native-vector-icons/FontAwesome6';
-import Ionicons from 'react-native-vector-icons/Ionicons';
 
 
 const Review = ({ route, navigation }) => {
@@ -16,11 +15,6 @@ const Review = ({ route, navigation }) => {
 
     const [gymsThumbsUpCount, setGymsThumbsUpCount] = useState(0);
     const [gymsThumbsDownCount, setGymsThumbsDownCount] = useState(0);
-
-    const [gym2UpCount, setGym2UpCount] = useState(0);
-    const [gym2DownCount, setGym2DownCount] = useState(0);
-    const [gym3UpCount, setGym3UpCount] = useState(0);
-    const [gym3DownCount, setGym3DownCount] = useState(0);
 
     const [trainersThumbsUpCount, setTrainersThumbsUpCount] = useState(0);
     const [trainersThumbsDownCount, setTrainersThumbsDownCount] = useState(0);
@@ -31,20 +25,31 @@ const Review = ({ route, navigation }) => {
     const [mealThumbsUpCount, setMealThumbsUpCount] = useState(0);
     const [mealThumbsDownCount, setMealThumbsDownCount] = useState(0);
 
+    const [comment, setComment] = useState('');
+    const [comments, setComments] = useState([]);
+
+    const [title, setTitle] = useState('');
+    const [name, setName] = useState('');
+
 
     useEffect(() => {
       loadCountsFromStorage();
+      loadCommentsFromStorage();
     }, []);
 
     useEffect(() => {
       saveCountsToStorage();
     }, [gymsThumbsUpCount, gymsThumbsDownCount, trainersThumbsUpCount, trainersThumbsDownCount, exercisesThumbsUpCount, exercisesThumbsDownCount, mealThumbsUpCount, mealThumbsDownCount]);
 
+    useEffect(() => {
+      saveCommentsToStorage();
+    }, [comments]);
+
 
     const loadCountsFromStorage = async () => {
       try {
         const gymsThumbsUp = await AsyncStorage.getItem('gymsThumbsUp');
-        const gymsThumbsDown = await AsyncStorage.getItem('gymThumbsDown');
+        const gymsThumbsDown = await AsyncStorage.getItem('gymsThumbsDown');
         const trainersThumbsUp = await AsyncStorage.getItem('trainersThumbsUp');
         const trainersThumbsDown = await AsyncStorage.getItem('trainersThumbsDown');
         const exercisesThumbsUp = await AsyncStorage.getItem('exercisesThumbsUp');
@@ -108,7 +113,7 @@ const Review = ({ route, navigation }) => {
     const saveCountsToStorage = async () => {
       try {
         await AsyncStorage.setItem('gymsThumbsUp', gymsThumbsUpCount.toString());
-        await AsyncStorage.setItem('gymThumbsDown', gymsThumbsDownCount.toString());
+        await AsyncStorage.setItem('gymsThumbsDown', gymsThumbsDownCount.toString());
         await AsyncStorage.setItem('trainersThumbsUp', trainersThumbsUpCount.toString());
         await AsyncStorage.setItem('trainersThumbsDown', trainersThumbsDownCount.toString());
         await AsyncStorage.setItem('exercisesThumbsUp', exercisesThumbsUpCount.toString());
@@ -192,6 +197,39 @@ const Review = ({ route, navigation }) => {
       }
     };
 
+    const submitComment = () => {
+      if (comment.trim() !== '' && title.trim() !== '' && name.trim() !== '') {
+        // Add new comment to comment list
+        const newComment = { title, comment, name };
+        setComments([...comments, newComment]);
+
+        // Reset field
+        setComment('');
+        setTitle('');
+        setName('');
+      }
+    };
+
+    const loadCommentsFromStorage = async () => {
+      try {
+        const storedComments = await AsyncStorage.getItem('comments');
+        if (storedComments) {
+          setComments(JSON.parse(storedComments));
+        }
+      } catch (error) {
+        console.error('error', error);
+      }
+    };
+
+    const saveCommentsToStorage = async () => {
+      try {
+        await AsyncStorage.setItem('comments', JSON.stringify(comments));
+      } catch (error) {
+        console.error('error', error);
+      }
+    };
+
+
     return (
       <SafeAreaView style={styles.container}>
         <ScrollView>
@@ -219,20 +257,6 @@ const Review = ({ route, navigation }) => {
             </View>
             <View style={styles.rowContainer}>
               <MaterialIcons name="sports-basketball" size={60} color='black' />
-              <Text>    </Text>
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonWrapper} onPress={() => handleUpCount('gyms', 'up')}>
-                  <FontAwesome name="thumbs-up" size={30} color='green' />
-                  <Text style={styles.buttonNumber}> {gymsThumbsUpCount}  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonWrapper} onPress={() => handleDownCount('gyms', 'down')}>
-                  <FontAwesome name="thumbs-down" size={30} color='red' />
-                  <Text style={styles.buttonNumber}> {gymsThumbsDownCount}</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={styles.rowContainer}>
-              <MaterialIcons name="stadium" size={60} color='black' />
               <Text>    </Text>
               <View style={styles.buttonContainer}>
                 <TouchableOpacity style={styles.buttonWrapper} onPress={() => handleUpCount('gyms', 'up')}>
@@ -345,20 +369,6 @@ const Review = ({ route, navigation }) => {
               </View>
             </View>
             <View style={styles.rowContainer}>
-              <MaterialIcons name="no-food" size={60} color='black' />
-              <Text>    </Text>
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonWrapper} onPress={() => handleUpCount('meal', 'up')}>
-                  <FontAwesome name="thumbs-up" size={30} color='green' />
-                  <Text style={styles.buttonNumber}> {mealThumbsUpCount}  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonWrapper} onPress={() => handleUpCount('meal', 'down')}>
-                  <FontAwesome name="thumbs-down" size={30} color='red' />
-                  <Text style={styles.buttonNumber}> {mealThumbsDownCount}</Text>
-                </TouchableOpacity>
-              </View>
-            </View>
-            <View style={styles.rowContainer}>
               <FA6 name="kitchen-set" size={60} color='black' />
               <Text>  </Text>
               <View style={styles.buttonContainer}>
@@ -372,21 +382,49 @@ const Review = ({ route, navigation }) => {
                 </TouchableOpacity>
               </View>
             </View>
-            <View style={styles.rowContainer}>
-              <Ionicons name="fast-food" size={60} color='black' />
-              <Text>    </Text>
-              <View style={styles.buttonContainer}>
-                <TouchableOpacity style={styles.buttonWrapper} onPress={() => handleUpCount('meal', 'up')}>
-                  <FontAwesome name="thumbs-up" size={30} color='green' />
-                  <Text style={styles.buttonNumber}> {mealThumbsUpCount}  </Text>
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.buttonWrapper} onPress={() => handleUpCount('meal', 'down')}>
-                  <FontAwesome name="thumbs-down" size={30} color='red' />
-                  <Text style={styles.buttonNumber}> {mealThumbsDownCount}</Text>
-                </TouchableOpacity>
-              </View>
+          </View>
+
+
+          <View style={styles.section2}>
+            <Text style={styles.header2}>Submit a Review</Text>
+            <View style={styles.commentContainer}>
+              <TextInput
+                style={styles.commentInput}
+                placeholder="Enter a review title...."
+                value={title}
+                onChangeText={(text) => setTitle(text)}
+              />
+            </View>
+            <TextInput
+              style={styles.commentInput}
+              placeholder="Enter a review...."
+              value={comment}
+              onChangeText={(text) => setComment(text)}
+            />
+            <TextInput
+              style={styles.commentInput}
+              placeholder="Enter a name...."
+              value={name}
+              onChangeText={(text) => setName(text)}
+            />
+            <TouchableOpacity style={styles.submitButton} onPress={submitComment}>
+              <Text style={styles.submitButtonText}>Submit</Text>
+            </TouchableOpacity>
+          </View>
+
+          <View style={styles.section2}>
+            <Text style={styles.header2}>Reviews</Text>
+            <View style={styles.commentSection}>
+              {comments.map((comment, index) => (
+                <View key={index} style={styles.commentItem}>
+                  <Text style={styles.reviewTitle}>{comment.title}</Text>
+                  <Text style={styles.reviewDesc}>{comment.comment}</Text>
+                  <Text style={styles.reviewName}>Submitted by: {comment.name}</Text>
+                </View>
+              ))}
             </View>
           </View>
+          
         </ScrollView>
       </SafeAreaView>
     );
@@ -397,7 +435,7 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'normal',
-      backgroundColor: '#FAFAFA',
+      backgroundColor: '#ACB6E5',
       paddingHorizontal: 8,
       paddingVertical: 25,
     },
@@ -446,6 +484,64 @@ const styles = StyleSheet.create({
     buttonNumber: {
       marginLeft: 5,
       marginRight: 5,
+    },
+    commentContainer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+    },
+    commentInput: {
+      flex: 1,
+      borderWidth: 1,
+      borderColor: '#000',
+      borderRadius: 5,
+      paddingHorizontal: 10,
+      marginRight: 10,
+    },
+    submitButton: {
+      padding: 10,
+      backgroundColor: 'blue',
+      borderRadius: 5,
+    },
+    submitButtonText: {
+      color: 'white',
+    },
+    commentSection: {
+      marginBottom: 20,
+    },
+    commentHeader: {
+      fontSize: 10,
+      fontWeight: 'bold',
+      marginBottom: 10,
+      color: 'black',
+    },
+    commentItem: {
+      borderWidth: 1,
+      borderColor: '#000',
+      borderRadius: 5,
+      padding: 10,
+      marginBottom: 10,
+    },
+    section2: {
+      marginBottom: 10,
+    },
+    header2: {
+      fontSize: 22,
+      marginBottom: 5,
+      fontWeight: 'bold',
+      color: 'black',
+    },
+    reviewTitle: {
+      fontSize: 18,
+      fontWeight: 'bold',
+      color: 'black',
+    },
+    reviewDesc: {
+      fontSize: 16,
+      color: 'black',
+    },
+    reviewName: {
+      fontSize: 14,
+      color: 'black',
     },
   });
 

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AppContext from './AppContext';
 
-import { StyleSheet, View, Button, Text, ScrollView, SafeAreaView, TextInput, Alert } from 'react-native';
+import { StyleSheet, View, Button, Text, ScrollView, SafeAreaView, TextInput, Alert, TouchableOpacity } from 'react-native';
 import { Calendar } from 'react-native-calendars';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -103,8 +103,12 @@ const Schedules = ({ route, navigation }) => {
           <ScrollView>
             <Text style={styles.title}>Workout Schedules</Text>
             <View style={styles.buttonContainer}>
-              <Button title="Save" onPress={handleSave}/>
-              <Button title="Reset" onPress={handleReset}/>
+              <TouchableOpacity style={styles.roundedButton} onPress={handleSave}>
+                <Text style={styles.buttonText}>Save</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.roundedButton2} onPress={handleReset}>
+                <Text style={styles.buttonText}>Reset</Text>
+              </TouchableOpacity>
             </View>
             <Calendar
               onDayPress={day => {
@@ -199,9 +203,9 @@ const styles = StyleSheet.create({
       flex: 1,
       justifyContent: 'center',
       alignItems: 'normal',
-      backgroundColor: '#FAFAFA',
+      backgroundColor: '#ACB6E5',
       paddingHorizontal: 8,
-      paddingVertical: 25,
+      paddingVertical: 20,
     },
     title: {
       fontSize: 24,
@@ -211,15 +215,15 @@ const styles = StyleSheet.create({
     buttonContainer: {
       flexDirection: 'row',
       justifyContent: 'space-between',
-      marginTop: 4,
-      marginBottom: 9,
+      marginTop: 2,
+      marginBottom: 6,
     },
     textInput: {
-        fontSize: 16,
-        borderBottomWidth: 1,
-        borderBottomColor: 'black',
-        flex: 1,
-        paddingVertical: 4,
+      fontSize: 16,
+      borderBottomWidth: 1,
+      borderBottomColor: 'black',
+      flex: 1,
+      paddingVertical: 4,
     },
     subHeader: {
       fontSize: 16,
@@ -230,6 +234,23 @@ const styles = StyleSheet.create({
     dayContainer: {
       flexDirection: 'row',
       alignItems: 'center',
+    },
+    roundedButton: {
+      backgroundColor: '#3344FF',
+      borderRadius: 25,
+      paddingVertical: 10,
+      paddingHorizontal: 15,
+    },
+    roundedButton2: {
+      backgroundColor: '#FF0000',
+      borderRadius: 25,
+      paddingVertical: 10,
+      paddingHorizontal: 15,
+    },
+    buttonText: {
+      color: 'white',
+      fontSize: 16,
+      fontWeight: 'bold',
     },
 });
 

@@ -89,7 +89,9 @@ const WorkoutTracking = ({ route, navigation }) => {
     const renderDeleteButton = () => {
       if (selected && workoutData[selected] && workoutData[selected].length > 0) {
         return (
-          <Button title="Delete" onPress={handleDelete} />
+          <TouchableOpacity style={styles.roundedButton2} onPress={handleDelete}>
+            <Text style={styles.buttonText}>Delete</Text>
+          </TouchableOpacity>
         );
       }
       return null;
@@ -111,12 +113,18 @@ const WorkoutTracking = ({ route, navigation }) => {
         <Text style={styles.title}>Workout Tracking</Text>
         <View style={styles.buttonContainer}>
           {!isAddingNewWorkout && (
-            <Button title="New" onPress={handleNewPress} />
+            <TouchableOpacity style={styles.roundedButton} onPress={handleNewPress}>
+              <Text style={styles.buttonText}>New</Text>
+            </TouchableOpacity>
           )}
           {isAddingNewWorkout && (
             <>
-              <Button title="Add" onPress={handleAdd} />
-              <Button title="Cancel" onPress={handleCancel} />
+              <TouchableOpacity style={styles.roundedButton} onPress={handleAdd}>
+                <Text style={styles.buttonText}>Add</Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.roundedButton} onPress={handleCancel}>
+                <Text style={styles.buttonText}>Cancel</Text>
+              </TouchableOpacity>
             </>
           )}
           {renderDeleteButton()}
@@ -257,6 +265,23 @@ const styles = StyleSheet.create({
     //fontFamily: 'PlaypenSans-Bold',
     fontFamily: 'Bitter-Black',
     fontSize: 24,
+    fontWeight: 'bold',
+  },
+  roundedButton: {
+    backgroundColor: '#3344FF',
+    borderRadius: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
+  roundedButton2: {
+    backgroundColor: '#FF0000',
+    borderRadius: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
     fontWeight: 'bold',
   },
 });

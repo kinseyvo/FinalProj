@@ -10,14 +10,14 @@ const Home = ({ route, navigation }) => {
     const context = React.useContext(AppContext);
 
     const buttons = [
-        { title: 'Account', icon: 'account-circle', onPress: () => handleAccountPress() },
-        { title: 'Gym Locations', icon: 'map-marker', onPress: () => handleLocationsPress() },
-        { title: 'Schedules', icon: 'calendar-month', onPress: () => handleSchedulesPress() },
-        { title: 'Workout Tracking', icon: 'timer', onPress: () => handleWorkoutTrackingPress() },
-        { title: 'Nutrition', icon: 'bowl-mix', onPress: () => handleNutritionPress() },
-        { title: 'Exercises', icon: 'weight-lifter', onPress: () => handleExercisesPress() },
-        { title: 'Review', icon: 'clipboard-check-multiple', onPress: () => handleReviewPress() },
-        { title: 'About', icon: 'alert-circle-outline', onPress: () => handleAboutPress() },
+        { title: 'Account', icon: 'account-circle', onPress: () => handleAccountPress(), color: '#3344FF' },
+        { title: 'Gym Locations', icon: 'map-marker', onPress: () => handleLocationsPress(), color: 'red'},
+        { title: 'Schedules', icon: 'calendar-month', onPress: () => handleSchedulesPress(), color: 'black' },
+        { title: 'Workout Tracking', icon: 'timer', onPress: () => handleWorkoutTrackingPress(), color: 'black' },
+        { title: 'Nutrition', icon: 'bowl-mix', onPress: () => handleNutritionPress(), color: 'black' },
+        { title: 'Exercises', icon: 'weight-lifter', onPress: () => handleExercisesPress(), color: 'black' },
+        { title: 'Review', icon: 'clipboard-check-multiple', onPress: () => handleReviewPress(), color: 'green' },
+        { title: 'About', icon: 'alert-circle-outline', onPress: () => handleAboutPress(), color: 'grey' },
     ];
 
     const handleAccountPress = () => {
@@ -63,7 +63,7 @@ const Home = ({ route, navigation }) => {
                             {buttons.map((button, index) => (
                                 <TouchableOpacity key={index} style={styles.buttonContainer} onPress={button.onPress}>
                                     <View style={styles.buttonContent}>
-                                        <MCIcons name={button.icon} size={60} color='black' />
+                                        <MCIcons name={button.icon} size={60} color={button.color} />
                                         <Text style={styles.topText}>{button.title}</Text>
                                     </View>
                                 </TouchableOpacity>
@@ -89,7 +89,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         fontWeight: 'bold',
         marginBottom: 7,
-        color: '#3344FF',
+        color: 'blue',
     },
     header: {
         fontSize: 22,
@@ -106,7 +106,7 @@ const styles = StyleSheet.create({
         aspectRatio: 1,
         marginBottom: 10,
         borderWidth: 1,
-        borderColor: '#ccc',
+        borderColor: '#999',
         borderRadius: 5,
         overflow: 'hidden',
     },

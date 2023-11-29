@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AppContext from './AppContext';
 
-import { StyleSheet, View, Button, Text, SafeAreaView, Image, TextInput } from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, Image, TextInput, TouchableOpacity } from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import ImagePicker from 'react-native-image-crop-picker';
 
@@ -78,7 +78,7 @@ const Account = ({ route, navigation }) => {
     
 
     return (
-      <SafeAreaView>
+      <SafeAreaView style={styles.container}>
         <Text style={styles.title}>Account</Text>
         <Image source={userImage ? {uri: userImage} : require('./assets/image/arnold.jpg')} style={styles.image} />
 
@@ -104,9 +104,15 @@ const Account = ({ route, navigation }) => {
           onChangeText={(text) => context.setGymName(text)}
         />
         <View style={styles.buttonContainer}>
-          <Button title="Save Info" onPress={handleSave}/>
-          <Button title="Change Photo" onPress={handleUploadPhoto}/>
-          <Button title="Remove Photo" onPress={handleResetImage}/>
+          <TouchableOpacity style={styles.roundedButton} onPress={handleSave}>
+            <Text style={styles.buttonText}>Save Info</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.roundedButton2} onPress={handleUploadPhoto}>
+            <Text style={styles.buttonText}>Change Photo</Text>
+          </TouchableOpacity>
+          <TouchableOpacity style={styles.roundedButton3} onPress={handleResetImage}>
+            <Text style={styles.buttonText}>Remove Photo</Text>
+          </TouchableOpacity>
         </View>
       </SafeAreaView>
     );
@@ -115,9 +121,8 @@ const Account = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
     alignItems: 'normal',
-    backgroundColor: '#FAFAFA',
+    backgroundColor: '#ACB6E5',
   },
   title: {
     fontSize: 24,
@@ -172,6 +177,29 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     resizeMode: 'cover',
+  },
+  roundedButton: {
+    backgroundColor: '#3344FF',
+    borderRadius: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
+  roundedButton2: {
+    backgroundColor: '#808080',
+    borderRadius: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
+  roundedButton3: {
+    backgroundColor: '#FF0000',
+    borderRadius: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+  },
+  buttonText: {
+    color: 'white',
+    fontSize: 16,
+    fontWeight: 'bold',
   },
 });
 
