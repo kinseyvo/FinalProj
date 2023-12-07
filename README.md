@@ -2,16 +2,32 @@
 For gym rats, new and old. The only hard part of going to the gym is actually going to the gym. Find nearby gyms to workout. You can make your own workout schedule. Explore different types of strength, core, and cardio exercises. Don’t put off until tomorrow what can be done today!
 
 
-Features:
--
+## Features:
+- Account
+   - Users can enter and change their name, email, and gym
+   - Users can set their own account photo or use the default picture
+- Gym Locations
+   - Users can search for nearby gyms
+- Schedules
+   - Users can make their own workout schedule
+   - Users can set different plans for each day of the week
+- Workout Tracking
+   - Users can track their workouts, such as time, exercises, and calories
+   - Users can add as many workouts they did to each day
+   - Users can also remove a workout
+- Nutrition
+   - Users can view workout meals, no-go foods, and recipes
+   - Users can get access to various food websites for more information
+- Exercises
+   - Users can browse and learn strength, core, cardio, and other exercises
+   - Each type of exercise is accompanied by an image so users can get a visual representation
+- Review
+   - Users can rate gyms, trainers, and workouts
+   - Users can submit a review for the app
 
-
-Screenshots:
+## Screenshots:
 - 
 
-
-Image Source:
--
 
 
 ---
@@ -68,7 +84,7 @@ This is one way to run your app — you can also run it directly from within And
 
 Now that you have successfully run the app, let's modify it.
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
+1. Open `App.js` in your text editor of choice and edit some lines.
 2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
 
    For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
