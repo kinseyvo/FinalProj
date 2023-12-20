@@ -26,88 +26,50 @@ For gym rats, new and old. The only hard part of going to the gym is actually go
    - Users can submit a review for the app
 
 ## Screenshots:
-- 
+- Home Screen
+<p float="left">
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/4f19b907-0337-46ed-b57d-88d7d1c29bc4" width="22%" />
+</p>
 
+- Account
+<p float="left">
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/ed0106aa-7913-443c-998e-913671c0418b" width="22%" />
+</p>
 
+- Gym Locations
+<p float="left">
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/0bc53d2c-697e-4e8a-8002-ab243f8b7888" width="22%" />
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/fa180670-a935-48df-8edd-672af52318a7" width="22%" />
+</p>
 
----
+- Schedules
+<p float="left">
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/4a0c8b56-c47e-44d4-b77a-e024d3242d46" width="22%" />
+</p>
 
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+- Workout Tracking
+<p float="left">
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/3f194bb1-cdc2-487c-92e6-b2d9c0fc726d" width="22%" />
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/3583a778-5715-42d0-9c37-72e1cde1b964" width="22%" />
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/6338c804-ae84-4568-9b63-4decbdf7b2ba" width="22%" />
+</p>
 
-# Getting Started
+- Nutrition
+<p float="left">
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/e5a0fec4-a52e-4f0f-9efc-ae6d8997ea28" width="22%" />
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/480ba818-f3bb-4915-b1bd-931a67fd6b65" width="22%" />
+</p>
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+- Exercises
+<p float="left">
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/5c192d97-0f58-48a6-9636-243e40db0e5b" width="22%" />
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/1d6e422d-ac21-4c44-a615-65a94aea8b58" width="22%" />
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/c4115948-7f45-47b8-9bc7-4951084b20e6" width="22%" />
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/a9743b5f-df9b-428d-8708-16e0f4988039" width="22%" />
+</p>
 
-## Step 1: Start the Metro Server
-
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
-
-To start Metro, run the following command from the _root_ of your React Native project:
-
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
-```
-
-## Step 2: Start your Application
-
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
-
-### For Android
-
-```bash
-# using npm
-npm run android
-
-# OR using Yarn
-yarn android
-```
-
-### For iOS
-
-```bash
-# using npm
-npm run ios
-
-# OR using Yarn
-yarn ios
-```
-
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
-
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
-
-## Step 3: Modifying your App
-
-Now that you have successfully run the app, let's modify it.
-
-1. Open `App.js` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
-
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
-
-## Congratulations! :tada:
-
-You've successfully run and modified your React Native App. :partying_face:
-
-### Now what?
-
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
-
-# Troubleshooting
-
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+- Review
+<p float="left">
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/f01a717d-44fc-43e3-b5ce-8542fe56b88e" width="22%" />
+  <img src="https://github.com/kinseyvo/Gymprentice/assets/54725252/e8cee38c-f603-42e1-8761-10c33131d6da" width="22%" />
+</p>
